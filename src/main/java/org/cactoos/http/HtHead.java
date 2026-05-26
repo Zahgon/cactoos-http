@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import java.io.InputStream;
@@ -62,12 +61,6 @@ public final class HtHead implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        try (final Scanner scanner = new Scanner(
-            this.response.stream(),
-            HtHead.CHARSET.name()
-        )) {
-            scanner.useDelimiter(HtHead.DELIMITER);
-            return new InputStreamOf(scanner.next());
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

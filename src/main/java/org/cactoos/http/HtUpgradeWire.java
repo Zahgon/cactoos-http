@@ -60,6 +60,6 @@ public final class HtUpgradeWire implements Wire {
 
     @Override
     public Input send(final Input input) throws Exception {
-        return this.origin.send(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

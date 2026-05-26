@@ -50,34 +50,34 @@ public final class AutoClosedInputStream extends InputStream {
 
     @Override
     public void close() throws IOException {
-        this.origin.close();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int available() throws IOException {
-        return this.origin.available();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public int read(final byte[] bytes, final int off, final int len)
-        throws IOException {
-        return new AutoClosed(() -> this.origin.read(bytes, off, len)).value();
+    public int read(final byte[] bytes, final int off, final int len) throws IOException {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int read(final byte[] bytes) throws IOException {
-        return new AutoClosed(() -> this.origin.read(bytes)).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public int read() throws IOException {
-        return new AutoClosed(() -> this.origin.read()).value();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
      * Primitive Scalar.
      */
     private interface IntScalar {
+
         /**
          * Convert it to the value.
          * @return The value
@@ -106,12 +106,7 @@ public final class AutoClosedInputStream extends InputStream {
 
         @Override
         public int value() throws IOException {
-            final int ret;
-            ret = this.origin.value();
-            if (ret < 0) {
-                AutoClosedInputStream.this.close();
-            }
-            return ret;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

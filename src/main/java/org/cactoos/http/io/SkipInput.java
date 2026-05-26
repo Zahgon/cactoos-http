@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http.io;
 
 import java.io.InputStream;
@@ -58,20 +57,6 @@ public final class SkipInput implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        final byte[] bytes = this.delimiter.asBytes();
-        final BoundedByteBuffer buffer = new BoundedByteBuffer(
-            bytes.length
-        );
-        final InputStream stream = this.origin.stream();
-        boolean eof = false;
-        while (!eof && !buffer.equalTo(bytes)) {
-            final int read = stream.read();
-            if (read < 0) {
-                eof = true;
-            } else {
-                buffer.offer((byte) read);
-            }
-        }
-        return stream;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

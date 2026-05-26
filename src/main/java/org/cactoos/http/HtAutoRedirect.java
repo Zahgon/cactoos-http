@@ -52,19 +52,6 @@ public final class HtAutoRedirect implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        InputStream stream = this.response.stream();
-        final String header = "location";
-        final int status = new HtStatus(this.response).intValue();
-        // @checkstyle MagicNumber (1 line)
-        if (status >= 300 && status <= 308) {
-            final Map<String, List<String>> headers = new HtHeaders(
-                new HtHead(this.response)
-            );
-            if (headers.containsKey(header)) {
-                final URI uri = URI.create(headers.get(header).get(0));
-                stream = new HtResponse(uri).stream();
-            }
-        }
-        return stream;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

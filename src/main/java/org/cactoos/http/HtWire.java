@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import java.io.InputStream;
@@ -84,15 +83,7 @@ public final class HtWire implements Wire {
      * @param spplier Socket supplier
      */
     HtWire(final URI uri, final BiFunc<String, Integer, Socket> spplier) {
-        this(
-            uri.getHost(),
-            new Ternary<>(
-                () -> uri.getPort() == -1,
-                () -> uri.toURL().getDefaultPort(),
-                uri::getPort
-            ),
-            spplier
-        );
+        this(uri.getHost(), new Ternary<>(() -> uri.getPort() == -1, () -> uri.toURL().getDefaultPort(), uri::getPort), spplier);
     }
 
     /**
@@ -101,8 +92,7 @@ public final class HtWire implements Wire {
      * @param tcp The TCP port source
      * @param spplier Supplier of sockets
      */
-    HtWire(final String addr, final Scalar<Integer> tcp,
-        final BiFunc<String, Integer, Socket> spplier) {
+    HtWire(final String addr, final Scalar<Integer> tcp, final BiFunc<String, Integer, Socket> spplier) {
         this(() -> spplier.apply(addr, tcp.value()));
     }
 
@@ -116,18 +106,6 @@ public final class HtWire implements Wire {
 
     @Override
     public Input send(final Input input) throws Exception {
-        final Socket socket = this.supplier.value();
-        final InputStream source = input.stream();
-        final InputStream ins = socket.getInputStream();
-        final OutputStream ous = socket.getOutputStream();
-        final byte[] buf = new byte[HtWire.LENGTH];
-        while (true) {
-            final int len = source.read(buf);
-            if (len < 0) {
-                break;
-            }
-            ous.write(buf, 0, len);
-        }
-        return new InputOf(ins);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

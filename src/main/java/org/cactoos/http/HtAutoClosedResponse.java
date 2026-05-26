@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import java.io.InputStream;
@@ -50,6 +49,6 @@ public final class HtAutoClosedResponse implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return new AutoClosedInputStream(this.origin.stream());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

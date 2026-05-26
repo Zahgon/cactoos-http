@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import java.util.List;
@@ -57,10 +56,6 @@ public final class HtContentType implements Scalar<List<String>> {
 
     @Override
     public List<String> value() {
-        return new HtHeaders(this.head)
-            .getOrDefault(
-                "content-type",
-                new ListOf<>("application/octet-stream")
-            );
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

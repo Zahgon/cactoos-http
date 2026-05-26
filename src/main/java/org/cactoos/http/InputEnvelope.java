@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import java.io.InputStream;
@@ -49,6 +48,6 @@ public abstract class InputEnvelope implements Input {
 
     @Override
     public final InputStream stream() throws Exception {
-        return this.origin.stream();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

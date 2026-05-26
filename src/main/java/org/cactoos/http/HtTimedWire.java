@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import org.cactoos.Input;
@@ -56,9 +55,6 @@ public final class HtTimedWire implements Wire {
 
     @Override
     public Input send(final Input input) throws Exception {
-        return new Timed<>(
-            this.origin::send,
-            this.milliseconds
-        ).apply(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

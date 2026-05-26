@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import java.io.InputStream;
@@ -31,7 +30,7 @@ import org.cactoos.io.BytesOf;
 
 /**
  * Head of HTTP response.
-
+ *
  * @since 0.1
  */
 public final class HtBody implements Input {
@@ -51,6 +50,6 @@ public final class HtBody implements Input {
 
     @Override
     public InputStream stream() throws Exception {
-        return new SkipInput(this.response, new BytesOf("\r\n\r\n")).stream();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

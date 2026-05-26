@@ -69,14 +69,7 @@ public final class BoundedByteBuffer {
      * @param add The byte to add
      */
     public void offer(final byte add) {
-        if (this.full) {
-            this.start = (this.start + 1) % this.internal.length;
-        }
-        this.internal[this.end] = add;
-        this.end = (this.end + 1) % this.internal.length;
-        if (this.start == this.end) {
-            this.full = true;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -89,17 +82,7 @@ public final class BoundedByteBuffer {
      */
     @SuppressWarnings("PMD.OnlyOneReturn")
     public boolean equalTo(final byte[] bytes) {
-        if (this.size() != bytes.length) {
-            return false;
-        }
-        int index = this.start;
-        for (final byte current : bytes) {
-            if ((int) current != (int) this.internal[index]) {
-                return false;
-            }
-            index = (index + 1) % this.internal.length;
-        }
-        return true;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**

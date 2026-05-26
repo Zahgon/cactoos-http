@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package org.cactoos.http;
 
 import org.cactoos.Func;
@@ -68,9 +67,6 @@ public final class HtRetryWire implements Wire {
 
     @Override
     public Input send(final Input input) throws Exception {
-        return new Retry<>(
-            this.origin::send,
-            this.func
-        ).apply(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

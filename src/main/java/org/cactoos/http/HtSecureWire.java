@@ -36,6 +36,7 @@ import org.cactoos.scalar.Constant;
  * @since 0.1
  */
 public final class HtSecureWire implements Wire {
+
     /**
      * Address.
      */
@@ -74,11 +75,7 @@ public final class HtSecureWire implements Wire {
      * @param tcp The TCP port
      */
     public HtSecureWire(final String addr, final int tcp) {
-        this(
-            addr,
-            tcp,
-            (host, prt) -> SSLSocketFactory.getDefault().createSocket(host, prt)
-        );
+        this(addr, tcp, (host, prt) -> SSLSocketFactory.getDefault().createSocket(host, prt));
     }
 
     /**
@@ -87,8 +84,7 @@ public final class HtSecureWire implements Wire {
      * @param tcp The TCP port
      * @param sck Ssl socket
      */
-    public HtSecureWire(final String addr,
-        final int tcp, final BiFunc<String, Integer, Socket> sck) {
+    public HtSecureWire(final String addr, final int tcp, final BiFunc<String, Integer, Socket> sck) {
         this.address = addr;
         this.port = tcp;
         this.socket = sck;
@@ -96,7 +92,6 @@ public final class HtSecureWire implements Wire {
 
     @Override
     public Input send(final Input input) throws Exception {
-        return new HtWire(this.address, new Constant<>(this.port), this.socket)
-            .send(input);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }
